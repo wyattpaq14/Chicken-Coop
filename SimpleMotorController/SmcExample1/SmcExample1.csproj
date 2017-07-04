@@ -99,7 +99,7 @@
     </ProjectReference>
     <Reference Include="UsbWrapper">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Smc\UsbWrapper.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Smc\UsbWrapper.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
