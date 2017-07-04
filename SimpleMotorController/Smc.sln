@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.4
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smc", "Smc\Smc.csproj", "{4990BC43-B287-4AF2-9EB7-A55BD40BDF85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmcCmd", "SmcCmd\SmcCmd.csproj", "{4855F41D-1A7D-4CAC-89BC-479F03995040}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmcExample1", "SmcExample1\SmcExample1.csproj", "{6788D581-6340-4A8C-847C-106F3183B9BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmcExample2", "SmcExample2\SmcExample2.csproj", "{379F1DA7-7AA7-4DCE-8937-9456B40C9896}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Release|Mixed Platforms = Release|Mixed Platforms
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4990BC43-B287-4AF2-9EB7-A55BD40BDF85}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{4990BC43-B287-4AF2-9EB7-A55BD40BDF85}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{4990BC43-B287-4AF2-9EB7-A55BD40BDF85}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{4990BC43-B287-4AF2-9EB7-A55BD40BDF85}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{4855F41D-1A7D-4CAC-89BC-479F03995040}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{4855F41D-1A7D-4CAC-89BC-479F03995040}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{4855F41D-1A7D-4CAC-89BC-479F03995040}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{4855F41D-1A7D-4CAC-89BC-479F03995040}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{6788D581-6340-4A8C-847C-106F3183B9BC}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{6788D581-6340-4A8C-847C-106F3183B9BC}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{6788D581-6340-4A8C-847C-106F3183B9BC}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{6788D581-6340-4A8C-847C-106F3183B9BC}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{379F1DA7-7AA7-4DCE-8937-9456B40C9896}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{379F1DA7-7AA7-4DCE-8937-9456B40C9896}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{379F1DA7-7AA7-4DCE-8937-9456B40C9896}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{379F1DA7-7AA7-4DCE-8937-9456B40C9896}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
