@@ -19,9 +19,12 @@
             <p>
                 <asp:Button ID="btnClose" runat="server" CssClass="btn btn-default" OnClick="btnClose_Click" Text="Close Coop" />
             </p>
+
             <p>
-                <asp:Label ID="lblDoorStatus" runat="server" Text="Status: asdf" />
+                <asp:Button ID="btnStop" runat="server" CssClass="btn btn-default" OnClick="btnStop_Click" Text="Stop Motor" />
             </p>
+
+            
         </div>
     </div>
 

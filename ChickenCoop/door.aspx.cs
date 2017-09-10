@@ -27,8 +27,15 @@ namespace ChickenCoop
             {
                 using (Smc device = connectToDevice())  // Find a device and temporarily connect.
                 {
+
+
                     device.resume();         // Clear as many errors as possible.
                     device.setSpeed(3200);   // Set the speed to full forward (+100%).
+
+                    btnOpen.Text = "Opening Door..."; //Basic notification for user.
+                    System.Threading.Thread.Sleep(5000); //Sleeps for x amount of time.
+                    device.setSpeed(0);   // Set the speed to full forward (+100%).
+
                 }
             }
             catch (Exception exception)  // Handle exceptions by displaying them to the user.
@@ -36,7 +43,7 @@ namespace ChickenCoop
                 displayException(exception);
             }
 
-            lblDoorStatus.Text = "Door Open...";
+            
         }
 
         protected void btnClose_Click(object sender, EventArgs e)
@@ -48,6 +55,9 @@ namespace ChickenCoop
                 {
                     device.resume();          // Clear as many errors as possible.
                     device.setSpeed(-3200);   // Set the speed to full reverse (-100%).
+                    btnClose.Text = "Closing Door..."; //Basic notification for user.
+                    System.Threading.Thread.Sleep(5000); //Sleeps for x amount of time.
+                    device.setSpeed(0);   // Set the speed to full forward (+100%).
                 }
             }
             catch (Exception exception)  // Handle exceptions by displaying them to the user.
@@ -55,7 +65,7 @@ namespace ChickenCoop
                 displayException(exception);
             }
 
-            lblDoorStatus.Text = "Door Close...";
+
 
         }
 
@@ -98,5 +108,6 @@ namespace ChickenCoop
             while (exception != null);
             MessageBox.Show(stringBuilder.ToString(), this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
     }
 }
