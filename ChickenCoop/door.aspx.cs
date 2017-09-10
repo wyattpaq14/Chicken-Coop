@@ -23,6 +23,7 @@ namespace ChickenCoop
 
         protected void btnOpen_Click(object sender, EventArgs e)
         {
+            btnOpen.Text = "Opening Door..."; //Basic notification for user.
             try
             {
                 using (Smc device = connectToDevice())  // Find a device and temporarily connect.
@@ -32,7 +33,7 @@ namespace ChickenCoop
                     device.resume();         // Clear as many errors as possible.
                     device.setSpeed(3200);   // Set the speed to full forward (+100%).
 
-                    btnOpen.Text = "Opening Door..."; //Basic notification for user.
+
                     System.Threading.Thread.Sleep(5000); //Sleeps for x amount of time.
                     device.setSpeed(0);   // Set the speed to full forward (+100%).
 
@@ -43,11 +44,12 @@ namespace ChickenCoop
                 displayException(exception);
             }
 
-            
+
         }
 
         protected void btnClose_Click(object sender, EventArgs e)
         {
+            btnClose.Text = "Closing Door..."; //Basic notification for user.
 
             try
             {
@@ -55,7 +57,7 @@ namespace ChickenCoop
                 {
                     device.resume();          // Clear as many errors as possible.
                     device.setSpeed(-3200);   // Set the speed to full reverse (-100%).
-                    btnClose.Text = "Closing Door..."; //Basic notification for user.
+
                     System.Threading.Thread.Sleep(5000); //Sleeps for x amount of time.
                     device.setSpeed(0);   // Set the speed to full forward (+100%).
                 }

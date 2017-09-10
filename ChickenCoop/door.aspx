@@ -20,10 +20,6 @@
                 <asp:Button ID="btnClose" runat="server" CssClass="btn btn-default" OnClick="btnClose_Click" Text="Close Coop" />
             </p>
 
-            <p>
-                <asp:Button ID="btnStop" runat="server" CssClass="btn btn-default" OnClick="btnStop_Click" Text="Stop Motor" />
-            </p>
-
             
         </div>
     </div>
