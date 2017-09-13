@@ -10,6 +10,7 @@ using System.Text;
 using System.ComponentModel;
 using System.Windows.Forms;
 
+
 namespace ChickenCoop
 {
     public partial class door : System.Web.UI.Page
@@ -50,6 +51,7 @@ namespace ChickenCoop
         protected void btnClose_Click(object sender, EventArgs e)
         {
             btnClose.Text = "Closing Door..."; //Basic notification for user.
+
 
             try
             {
@@ -111,5 +113,9 @@ namespace ChickenCoop
             MessageBox.Show(stringBuilder.ToString(), this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

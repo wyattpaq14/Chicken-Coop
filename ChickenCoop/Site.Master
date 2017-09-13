@@ -14,6 +14,7 @@
 
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="~/Content/Overide.css" rel="stylesheet" type="text/css" />
 
 </head>
 <body>
@@ -53,6 +54,11 @@
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/door.aspx">Door</a></li>
                         <li><a runat="server" href="~/cam.aspx">Camera</a></li>
+                        </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <asp:LinkButton ID="lbLoginState" runat="server" Text="asdf" OnClick="lbLoginState_Click" CausesValidation="false" /></li>
+                        <li>
                     </ul>
                 </div>
             </div>
