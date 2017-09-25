@@ -9,42 +9,57 @@ using Pololu.SimpleMotorController;
 using System.Text;
 using System.ComponentModel;
 using System.Windows.Forms;
+using ChickenCoop.App_Code;
 
 
 namespace ChickenCoop
 {
     public partial class door : System.Web.UI.Page
     {
+
+        Setting set = new Setting();
+
         public string Text { get; private set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Boolean doorStatus = set.IsOpen;
+
+
+            if (doorStatus)
+            {
+                btnOpen.Enabled = false;
+            }
+            else if (!doorStatus)
+            {
+                btnClose.Enabled = false;
+            }
 
         }
 
         protected void btnOpen_Click(object sender, EventArgs e)
         {
-            btnOpen.Text = "Opening Door..."; //Basic notification for user.
-            try
-            {
-                using (Smc device = connectToDevice())  // Find a device and temporarily connect.
-                {
+            //btnOpen.Text = "Opening Door..."; //Basic notification for user.
+            //try
+            //{
+            //    using (Smc device = connectToDevice())  // Find a device and temporarily connect.
+            //    {
 
 
-                    device.resume();         // Clear as many errors as possible.
-                    device.setSpeed(3200);   // Set the speed to full forward (+100%).
+            //        device.resume();         // Clear as many errors as possible.
+            //        device.setSpeed(3200);   // Set the speed to full forward (+100%).
 
 
-                    System.Threading.Thread.Sleep(5000); //Sleeps for x amount of time.
-                    device.setSpeed(0);   // Set the speed to full forward (+100%).
+            //        System.Threading.Thread.Sleep(5000); //Sleeps for x amount of time.
+            //        device.setSpeed(0);   // Set the speed to full forward (+100%).
 
-                }
-            }
-            catch (Exception exception)  // Handle exceptions by displaying them to the user.
-            {
-                displayException(exception);
-            }
-
+            //    }
+            //}
+            //catch (Exception exception)  // Handle exceptions by displaying them to the user.
+            //{
+            //    displayException(exception);
+            //}
+            
 
         }
 

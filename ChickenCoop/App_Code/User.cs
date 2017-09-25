@@ -22,7 +22,7 @@ namespace ChickenCoop.App_Code
         //Default constructor
         public User()
         {
-            this.Salt = CreateSalt();
+            this.UserSalt = CreateSalt();
         }
 
         //Overloaded constructor
@@ -33,11 +33,9 @@ namespace ChickenCoop.App_Code
             if (dt.Rows.Count > 0)
             {
                 this.UserId = (int)dt.Rows[0]["user_id"];
-                this.email = dt.Rows[0]["user_email"].ToString();
-                this.Salt = dt.Rows[0]["user_salt"].ToString();
-                this.FirstName = dt.Rows[0]["user_first"].ToString();
-                this.LastName = dt.Rows[0]["user_last"].ToString();
-                this.HashedPwd = dt.Rows[0]["user_pwd"].ToString();
+                this.UserEmail = dt.Rows[0]["user_email"].ToString();
+                this.UserSalt = dt.Rows[0]["user_salt"].ToString();
+                this.UserHashedPwd = dt.Rows[0]["user_pwd"].ToString();
             }
         }
 
@@ -78,7 +76,7 @@ namespace ChickenCoop.App_Code
             au.UserId = 0;
             au.FirstName = "new";
             au.LastName = "password";
-            au.HashedPwd = CreatePasswordHash(au.Salt, freeTxtPwd);
+            au.UserHashedPwd = CreatePasswordHash(au.UserSalt, freeTxtPwd);
 
 
             return au;
@@ -133,10 +131,11 @@ namespace ChickenCoop.App_Code
 
         public string LastName { get; set; }
 
-        public string Salt { get; set; }
+        public string UserSalt { get; set; }
 
-        public string HashedPwd { get; set; }
-        public string email { get; set; }
+        public string UserHashedPwd { get; set; }
+
+        public string UserEmail { get; set; }
 
         public bool validLogin { get; set; }
 

@@ -19,10 +19,10 @@ namespace ChickenCoop
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             User you = new User(txtEmail.Text);
-            string hsh = App_Code.User.CreatePasswordHash(you.Salt, txtPwd.Text);
+            string hsh = App_Code.User.CreatePasswordHash(you.UserSalt, txtPwd.Text);
 
             //check password
-            if (hsh == you.HashedPwd)
+            if (hsh == you.UserHashedPwd)
             {
                 you.validLogin = true;
             }
@@ -33,7 +33,7 @@ namespace ChickenCoop
 
             try
             {
-                int emailLength = you.email.Length;
+                int emailLength = you.UserEmail.Length;
             }
             catch (NullReferenceException)
             {
@@ -56,7 +56,7 @@ namespace ChickenCoop
                 Response.Cookies.Add(cookie);
 
                 //create session variable
-                Session["FullName"] = you.email;
+                Session["FullName"] = you.UserEmail;
 
                 //final redirect, well redirect to admin pages
                 Response.Redirect("~/door.aspx");

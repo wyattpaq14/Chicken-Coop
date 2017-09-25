@@ -195,7 +195,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\User.cs" />
-    <Content Include="App_Code\Setting.cs" />
+    <Compile Include="App_Code\Setting.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
