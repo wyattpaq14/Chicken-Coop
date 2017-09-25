@@ -52,8 +52,8 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/door.aspx">Door</a></li>
-                        <li><a runat="server" href="~/cam.aspx">Camera</a></li>
+                        <li><a runat="server" href="~/Door">Door</a></li>
+                        <li><a runat="server" href="~/Cam">Camera</a></li>
                         </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>

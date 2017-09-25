@@ -35,7 +35,7 @@ namespace ChickenCoop
 
         protected void lbLoginState_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/login.aspx");
+            Response.Redirect("~/Login");
         }
     }
 }

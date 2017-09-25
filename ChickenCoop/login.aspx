@@ -19,7 +19,7 @@
         <div class="form-group col-lg-12 col-md-offset-2">
             <asp:Label ID="lblPwd" runat="server" Text="Password" CssClass="col-lg-2 control-label"></asp:Label>
             <div class="col-lg-10">
-                <asp:TextBox ID="txtPwd" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox ID="txtPwd" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="rfvPwd" runat="server" Display="None" ControlToValidate="txtPwd" ErrorMessage="Password is required"></asp:RequiredFieldValidator>
             </div>
         </div>
@@ -40,10 +40,10 @@
 
         <div class="btn-group btn-group-justified">
 
-            <asp:LinkButton ID="lbCancel" runat="server" CssClass="btn btn-default" PostBackUrl="~/door.aspx" CausesValidation="false">Cancel</asp:LinkButton>
+            <asp:LinkButton ID="lbCancel" runat="server" CssClass="btn btn-default" PostBackUrl="~/Door" CausesValidation="false">Cancel</asp:LinkButton>
 
 
-            <asp:LinkButton ID="lbLogin" runat="server" CssClass="btn btn-primary" PostBackUrl="~/door.aspx" CausesValidation="false">Login</asp:LinkButton>
+            <asp:LinkButton ID="lbLogin" runat="server" CssClass="btn btn-primary" CausesValidation="true" OnClick="btnLogin_Click">Login</asp:LinkButton>
         </div>
 
 

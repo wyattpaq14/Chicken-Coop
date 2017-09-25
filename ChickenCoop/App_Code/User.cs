@@ -32,10 +32,10 @@ namespace ChickenCoop.App_Code
             DataTable dt = GetUser(email);
             if (dt.Rows.Count > 0)
             {
-                this.UserId = (int)dt.Rows[0]["user_id"];
-                this.UserEmail = dt.Rows[0]["user_email"].ToString();
-                this.UserSalt = dt.Rows[0]["user_salt"].ToString();
-                this.UserHashedPwd = dt.Rows[0]["user_pwd"].ToString();
+                this.UserId = (int)dt.Rows[0]["UserId"];
+                this.UserEmail = dt.Rows[0]["UserEmail"].ToString();
+                this.UserSalt = dt.Rows[0]["UserSalt"].ToString();
+                this.UserHashedPwd = dt.Rows[0]["UserHashedPwd"].ToString();
             }
         }
 
@@ -89,9 +89,9 @@ namespace ChickenCoop.App_Code
         private static DataTable GetUser(string email)
         {
             SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["SQL Server"].ConnectionString);
-            SqlCommand cmd = new SqlCommand("users_getByEmail", cn);
+            SqlCommand cmd = new SqlCommand("user_getbyEmail", cn);
             cmd.CommandType = CommandType.StoredProcedure;
-            SqlParameter pEmail = new SqlParameter("@UserEmail", SqlDbType.VarChar);
+            SqlParameter pEmail = new SqlParameter("@user_email", SqlDbType.VarChar);
             pEmail.Value = email;
             cmd.Parameters.Add(pEmail);
 
@@ -106,9 +106,9 @@ namespace ChickenCoop.App_Code
                 da.Fill(dt);
             }
 
-            catch
+            catch (Exception e)
             {
-
+                throw new Exception("Error" + e);
             }
             finally
             {

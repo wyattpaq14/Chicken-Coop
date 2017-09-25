@@ -59,7 +59,7 @@ namespace ChickenCoop
                 Session["FullName"] = you.UserEmail;
 
                 //final redirect, well redirect to admin pages
-                Response.Redirect("~/door.aspx");
+                Response.Redirect("~/Door");
 
             }
 
