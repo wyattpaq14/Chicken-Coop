@@ -10,7 +10,7 @@
         <div class="form-group col-lg-12 col-md-offset-2">
             <asp:Label ID="lblEmail" runat="server" Text="Email" CssClass="col-lg-2 control-label"></asp:Label>
             <div class="col-lg-10">
-                <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" TextMode="Email"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="rfvEmail" runat="server" Display="None" ControlToValidate="txtEmail" ErrorMessage="Email is required"></asp:RequiredFieldValidator>
             </div>
         </div>
@@ -30,6 +30,7 @@
         <br />
         <br />
         <br />
+
 
 
 

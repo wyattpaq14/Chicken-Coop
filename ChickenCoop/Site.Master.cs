@@ -18,16 +18,11 @@ namespace ChickenCoop
                 {
                     lbLoginState.Text = "Logout";
 
-
-                    //lblGreetings.Text = "Welcome " + Session["FullName"] + "!";
                 }
                 else if (!Request.IsAuthenticated)
                 {
-                    //Session["FullName"] = "Guest";
+
                     lbLoginState.Text = "Login";
-
-
-                    //lblGreetings.Text = "Welcome " + Session["FullName"] + "!";
                 }
             }
 
@@ -35,7 +30,16 @@ namespace ChickenCoop
 
         protected void lbLoginState_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Login");
+            if (!Request.IsAuthenticated)
+            {
+                Response.Redirect("~/Login");
+            }
+            else
+            {
+                FormsAuthentication.SignOut();
+                Response.Redirect("~/Home");
+            }
+            
         }
     }
 }
