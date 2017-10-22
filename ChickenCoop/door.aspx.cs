@@ -54,35 +54,31 @@ namespace ChickenCoop
         {
 
             if (Request.IsAuthenticated)
+            { 
+            btnOpen.Text = "Opening Door..."; //Basic notification for user.
+            try
             {
-                btnOpen.Text = "Opening Door..."; //Basic notification for user.
-                try
+                using (Smc device = connectToDevice())  // Find a device and temporarily connect.
                 {
-                    using (Smc device = connectToDevice())  // Find a device and temporarily connect.
-                    {
 
 
-                        device.resume();         // Clear as many errors as possible.
-                        device.setSpeed(3200);   // Set the speed to full forward (+100%).
+                    device.resume();         // Clear as many errors as possible.
+                    device.setSpeed(3200);   // Set the speed to full forward (+100%).
 
 
-                        System.Threading.Thread.Sleep(7000); //Sleeps for x amount of time.
-                        device.setSpeed(0);   // Set the speed to full forward (+100%).
+                    System.Threading.Thread.Sleep(5800); //Sleeps for x amount of time.
+                    device.setSpeed(0);   // Set the speed to full forward (+100%).
 
-                    }
                 }
-                catch (Exception exception)  // Handle exceptions by displaying them to the user.
-                {
-                    displayException(exception);
-                }
-
-                set.UpdateDoorStatus(true);
-                Response.Redirect(Request.RawUrl);
             }
-            else
+            catch (Exception exception)  // Handle exceptions by displaying them to the user.
             {
-                Response.Write("<script>alert('You are not logged in!');</script>");
+                displayException(exception);
             }
+
+            set.UpdateDoorStatus(true);
+            Response.Redirect(Request.RawUrl);
+        }
 
 
         }
@@ -102,7 +98,7 @@ namespace ChickenCoop
                         device.resume();          // Clear as many errors as possible.
                         device.setSpeed(-3200);   // Set the speed to full reverse (-100%).
 
-                        System.Threading.Thread.Sleep(7000); //Sleeps for x amount of time.
+                        System.Threading.Thread.Sleep(5000); //Sleeps for x amount of time.
                         device.setSpeed(0);   // Set the speed to full forward (+100%).
                     }
                 }
@@ -115,10 +111,6 @@ namespace ChickenCoop
                 set.UpdateDoorStatus(false);
                 Response.Redirect(Request.RawUrl);
 
-            }
-            else
-            {
-                Response.Write("<script>alert('You are not logged in!');</script>");
             }
         }
 
