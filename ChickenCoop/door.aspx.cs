@@ -24,8 +24,8 @@ namespace ChickenCoop
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            //if (Request.IsAuthenticated)
-            //{
+            if (Request.IsAuthenticated)
+            {
 
 
                 Boolean doorStatus = set.IsOpen;
@@ -41,20 +41,20 @@ namespace ChickenCoop
                 }
 
 
-            //}
-            //else
-            //{
-             //   btnClose.Enabled = false;
-             //   btnOpen.Enabled = false;
-            //}
+            }
+            else
+            {
+                btnClose.Enabled = false;
+                btnOpen.Enabled = false;
+            }
 
         }
 
         protected void btnOpen_Click(object sender, EventArgs e)
         {
 
-            //if (Request.IsAuthenticated)
-            //{
+            if (Request.IsAuthenticated)
+            {
                 btnOpen.Text = "Opening Door..."; //Basic notification for user.
                 try
                 {
@@ -78,15 +78,19 @@ namespace ChickenCoop
 
                 set.UpdateDoorStatus(true);
                 Response.Redirect(Request.RawUrl);
-            //}
+            }
+            else
+            {
+                Response.Write("<script>alert('You are not logged in!');</script>");
+            }
 
 
         }
 
         protected void btnClose_Click(object sender, EventArgs e)
         {
-            //if (Request.IsAuthenticated)
-            //{
+            if (Request.IsAuthenticated)
+            {
 
 
 
@@ -111,7 +115,11 @@ namespace ChickenCoop
                 set.UpdateDoorStatus(false);
                 Response.Redirect(Request.RawUrl);
 
-            //}
+            }
+            else
+            {
+                Response.Write("<script>alert('You are not logged in!');</script>");
+            }
         }
 
 
