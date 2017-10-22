@@ -24,8 +24,8 @@ namespace ChickenCoop
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            //if (Request.IsAuthenticated)
-            //{
+            if (Request.IsAuthenticated)
+            {
 
 
                 Boolean doorStatus = set.IsOpen;
@@ -41,52 +41,52 @@ namespace ChickenCoop
                 }
 
 
-            //}
-            //else
-            //{
-             //   btnClose.Enabled = false;
-             //   btnOpen.Enabled = false;
-            //}
+            }
+            else
+            {
+                btnClose.Enabled = false;
+                btnOpen.Enabled = false;
+            }
 
         }
 
         protected void btnOpen_Click(object sender, EventArgs e)
         {
 
-            //if (Request.IsAuthenticated)
-            //{
-                btnOpen.Text = "Opening Door..."; //Basic notification for user.
-                try
+            if (Request.IsAuthenticated)
+            { 
+            btnOpen.Text = "Opening Door..."; //Basic notification for user.
+            try
+            {
+                using (Smc device = connectToDevice())  // Find a device and temporarily connect.
                 {
-                    using (Smc device = connectToDevice())  // Find a device and temporarily connect.
-                    {
 
 
-                        device.resume();         // Clear as many errors as possible.
-                        device.setSpeed(3200);   // Set the speed to full forward (+100%).
+                    device.resume();         // Clear as many errors as possible.
+                    device.setSpeed(3200);   // Set the speed to full forward (+100%).
 
 
-                        System.Threading.Thread.Sleep(7000); //Sleeps for x amount of time.
-                        device.setSpeed(0);   // Set the speed to full forward (+100%).
+                    System.Threading.Thread.Sleep(5800); //Sleeps for x amount of time.
+                    device.setSpeed(0);   // Set the speed to full forward (+100%).
 
-                    }
                 }
-                catch (Exception exception)  // Handle exceptions by displaying them to the user.
-                {
-                    displayException(exception);
-                }
+            }
+            catch (Exception exception)  // Handle exceptions by displaying them to the user.
+            {
+                displayException(exception);
+            }
 
-                set.UpdateDoorStatus(true);
-                Response.Redirect(Request.RawUrl);
-            //}
+            set.UpdateDoorStatus(true);
+            Response.Redirect(Request.RawUrl);
+        }
 
 
         }
 
         protected void btnClose_Click(object sender, EventArgs e)
         {
-            //if (Request.IsAuthenticated)
-            //{
+            if (Request.IsAuthenticated)
+            {
 
 
 
@@ -98,7 +98,7 @@ namespace ChickenCoop
                         device.resume();          // Clear as many errors as possible.
                         device.setSpeed(-3200);   // Set the speed to full reverse (-100%).
 
-                        System.Threading.Thread.Sleep(7000); //Sleeps for x amount of time.
+                        System.Threading.Thread.Sleep(5000); //Sleeps for x amount of time.
                         device.setSpeed(0);   // Set the speed to full forward (+100%).
                     }
                 }
@@ -111,7 +111,7 @@ namespace ChickenCoop
                 set.UpdateDoorStatus(false);
                 Response.Redirect(Request.RawUrl);
 
-            //}
+            }
         }
 
 
