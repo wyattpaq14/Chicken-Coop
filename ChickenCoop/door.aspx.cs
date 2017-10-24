@@ -34,10 +34,12 @@ namespace ChickenCoop
                 if (doorStatus)
                 {
                     btnOpen.Enabled = false;
+                    lblDoorStatus.Text = "The door is: Open";
                 }
                 else if (!doorStatus)
                 {
                     btnClose.Enabled = false;
+                    lblDoorStatus.Text = "The door is: Closed";
                 }
 
 

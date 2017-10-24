@@ -4,7 +4,7 @@
 
     <div class="jumbotron">
         <h1>Chicken Coop Door Control</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
+        <p class="lead">Welcome to a chicken coop door application. Here you can open the door, or watch the chickens.</p>
     </div>
 
 
@@ -12,8 +12,7 @@
         <div class="col-md-4">
             <h2>Coop Door</h2>
             <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
+                <asp:Label ID="lblDoorStatus" runat="server" Text="Label"></asp:Label>
             </p>
             <p>
                 <asp:Button ID="btnOpen" runat="server" CssClass="btn btn-default" OnClick="btnOpen_Click" Text="Open Coop" />
