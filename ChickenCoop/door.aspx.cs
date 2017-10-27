@@ -23,23 +23,33 @@ namespace ChickenCoop
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Boolean doorStatus = set.IsOpen;
+
+            if (doorStatus)
+            {
+                lblDoorStatus.Text = "The door is: Open";
+                lblDoorStatus.ForeColor = System.Drawing.Color.Green;
+            }
+
+            else
+            {
+                lblDoorStatus.Text = "The door is: Closed";
+                lblDoorStatus.ForeColor = System.Drawing.Color.Red;
+            }
+                
+
+
 
             if (Request.IsAuthenticated)
             {
 
-
-                Boolean doorStatus = set.IsOpen;
-
-
                 if (doorStatus)
                 {
                     btnOpen.Enabled = false;
-                    lblDoorStatus.Text = "The door is: Open";
                 }
                 else if (!doorStatus)
                 {
                     btnClose.Enabled = false;
-                    lblDoorStatus.Text = "The door is: Closed";
                 }
 
 
@@ -56,31 +66,31 @@ namespace ChickenCoop
         {
 
             if (Request.IsAuthenticated)
-            { 
-            btnOpen.Text = "Opening Door..."; //Basic notification for user.
-            try
             {
-                using (Smc device = connectToDevice())  // Find a device and temporarily connect.
+                btnOpen.Text = "Opening Door..."; //Basic notification for user.
+                try
                 {
+                    using (Smc device = connectToDevice())  // Find a device and temporarily connect.
+                    {
 
 
-                    device.resume();         // Clear as many errors as possible.
-                    device.setSpeed(3200);   // Set the speed to full forward (+100%).
+                        device.resume();         // Clear as many errors as possible.
+                        device.setSpeed(3200);   // Set the speed to full forward (+100%).
 
 
-                    System.Threading.Thread.Sleep(5800); //Sleeps for x amount of time.
-                    device.setSpeed(0);   // Set the speed to full forward (+100%).
+                        System.Threading.Thread.Sleep(5800); //Sleeps for x amount of time.
+                        device.setSpeed(0);   // Set the speed to full forward (+100%).
 
+                    }
                 }
-            }
-            catch (Exception exception)  // Handle exceptions by displaying them to the user.
-            {
-                displayException(exception);
-            }
+                catch (Exception exception)  // Handle exceptions by displaying them to the user.
+                {
+                    displayException(exception);
+                }
 
-            set.UpdateDoorStatus(true);
-            Response.Redirect(Request.RawUrl);
-        }
+                set.UpdateDoorStatus(true);
+                Response.Redirect(Request.RawUrl);
+            }
 
 
         }
